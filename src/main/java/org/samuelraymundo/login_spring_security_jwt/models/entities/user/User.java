@@ -20,8 +20,8 @@ import java.util.List;
 public class User implements UserDetails,Serializable {
 
     @Id
-    @GeneratedValue
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String firstName;
 
