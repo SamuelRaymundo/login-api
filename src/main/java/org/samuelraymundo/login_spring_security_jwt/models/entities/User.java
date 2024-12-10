@@ -1,7 +1,10 @@
-package org.samuelraymundo.login_spring_security_jwt.models.entities.user;
+package org.samuelraymundo.login_spring_security_jwt.models.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.samuelraymundo.login_spring_security_jwt.models.enums.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -12,10 +15,10 @@ import java.util.Collection;
 import java.util.List;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 @Table(name = "app_user")
 public class User implements UserDetails,Serializable {
 
@@ -33,6 +36,14 @@ public class User implements UserDetails,Serializable {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    public User(String firstName, String lastName, String email, String password, Role role) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
