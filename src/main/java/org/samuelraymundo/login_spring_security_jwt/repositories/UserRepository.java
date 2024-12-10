@@ -1,6 +1,6 @@
 package org.samuelraymundo.login_spring_security_jwt.repositories;
 
-import org.samuelraymundo.login_spring_security_jwt.models.entities.user.User;
+import org.samuelraymundo.login_spring_security_jwt.models.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
